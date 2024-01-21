@@ -21,5 +21,5 @@ if __name__ == "__main__":
 
             if photos:
                 for photo in photos:
-                    with open("0.jpg", "wb") as file:
+                    with open(f"{event}.jpg", "wb") as file:
                         file.write(photo[0])
