@@ -2,7 +2,7 @@ import sqlite3 as sql
 import sys
 
 from PyQt5 import uic, QtCore, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem, QHeaderView
 
 if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
     QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
@@ -20,6 +20,7 @@ class WriteSql(QMainWindow):
         cur.execute('CREATE TABLE IF NOT EXISTS photos(id INTEGER, name VARCHAR, photo BLOB)')
         self.take_photo.clicked.connect(self.take_photo_from_folder)
         self.add_student.clicked.connect(self.add_student_to_table)
+        self.table_of_students.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)  # !!!
         self.fname = ""
         self.student_name = ""
         self.titles = ['ID', 'ФИО']
