@@ -8,7 +8,7 @@ cur.execute('CREATE TABLE IF NOT EXISTS photos(id INTEGER, name VARCHAR, photo B
 for i in range(1):
     with open(f"{i}.jpg", "rb") as photo:
         h = photo.read()
-        cur.execute("INSERT INTO photos VALUES(1, 'roman', ?)", [h])
+        cur.execute("INSERT INTO photos VALUES(1, ?, ?)", [i, h])
 
 con.commit()
 cur.close()

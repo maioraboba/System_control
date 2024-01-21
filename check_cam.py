@@ -3,7 +3,7 @@ import cv2
 
 class Camera:
     trackers = {
-        'mos': cv2.legacy.TrackerMOSSE_create,
+        'mos': cv2.TrackerMOSSE_create,
         'csrt': cv2.TrackerCSRT_create,
         'kcf': cv2.TrackerKCF_create,
         # 'tld': cv2.TrackerTLD_create,
