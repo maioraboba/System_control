@@ -93,7 +93,7 @@ if __name__ == "__main__":
     cur = con.cursor()
 
     font = cv2.FONT_HERSHEY_COMPLEX
-    detector = FaceDetector()
+    detector = face_recognition.FaceDetector()
 
     cap = cv2.VideoCapture(0)
     success, frame = cap.read()
