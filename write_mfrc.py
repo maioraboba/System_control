@@ -5,9 +5,9 @@ import RPi.GPIO as GPIO
 if __name__ == "__main__":
     reader = SimpleMFRC522()
     try:
-            text = input('New data:')
-            print("Now place your tag to write")
+            text = input('Новый ученик:')
+            print("Поднесите карту к устройству ввода")
             reader.write(text)
-            print("Written")
+            print("Записано")
     finally:
         GPIO.cleanup()

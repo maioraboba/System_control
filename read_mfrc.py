@@ -7,7 +7,7 @@ if __name__ == "__main__":
     cur = con.cursor()
 
     reader = SimpleMFRC522()
-    print('Awaiting input...')
+    print('Поднесите карту для считывания')
 
     while True:
         event = reader.read()
