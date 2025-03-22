@@ -33,11 +33,11 @@ class Camera:
         self.cam.framerate = 30
         self.rawCapture = PiRGBArray(self.cam, size=(self.windowWidth, self.windowHeight))
         self.known_faces = self.load_encodings()
-        self.default_img = cv2.imread("/home/admin/sys_new/img/proz.jpg")
+        self.default_img = cv2.imread("img/proz.jpg")
 
     @staticmethod
     def load_encodings():
-        with open("/home/admin/sys_new/encodings_photos/face_encodings.pkl", 'rb') as f:
+        with open("encodings_photos/face_encodings.pkl", 'rb') as f:
             return pickle.load(f)
 
     def face_compare(self, img):
@@ -58,7 +58,7 @@ class Camera:
 
 class SqlData:
     def __init__(self):
-        self.con = sql.connect("/home/admin/sys_new/db/data.db", check_same_thread=False)
+        self.con = sql.connect("db/data.db", check_same_thread=False)
         self.cur = self.con.cursor()
 
     def take_img_from_sql(self):
@@ -67,7 +67,7 @@ class SqlData:
         photos = self.cur.fetchall()
 
         if photos:
-            with open(f"/home/admin/sys_new/photos_from_db/{rfid.name}.jpg", "wb") as file:
+            with open(f"photos_from_db/{rfid.name}.jpg", "wb") as file:
                 file.write(photos[0][0])
         else:
             video.display_message(f"Проход запрещен {rfid.name}, вашей карты нет в базе школы.", (0, 0, 255))
